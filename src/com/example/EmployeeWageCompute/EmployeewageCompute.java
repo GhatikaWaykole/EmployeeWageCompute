@@ -7,16 +7,13 @@ class employee{
 public class EmployeewageCompute {
     static final int IS_FULL_TIME = 1;
     static final int IS_PART_TIME = 2;
-    static final int EMP_RATE_PerHr = 20;
-    static final int NO_OF_WORKINGDAY = 20;
-    static final int MAX_HRS_MONTH=100;
     /* employeeWage method to compute the employee wage
       * employee wage compute with the switch case and random to give the working day of employee
      */
-    public static void employeeWage() {
+    public static void employeeWage(String companyName, int empRatePerHr, int noOfWorkingDay, int maxHrPerMonth) {
         int empHrs = 0, empWage = 0, totalEmpWage = 0, totalEmpHr = 0, totalWorkingDays = 0;
         // random to compute the value of random number rang of 2 number
-        while (totalEmpHr <= MAX_HRS_MONTH && totalWorkingDays < NO_OF_WORKINGDAY) {
+        while(totalEmpHr <= maxHrPerMonth && totalWorkingDays < noOfWorkingDay) {
             Random random = new Random();
             int empCheck = random.nextInt(3);
             switch (empCheck) {
@@ -31,16 +28,18 @@ public class EmployeewageCompute {
                     break;
             }
             // daily wage give the employee rate per hour 20 and the emp hour 8 of day compute
-            empWage = EMP_RATE_PerHr * empHrs;
+            empWage = empRatePerHr * empHrs;
             totalEmpHr += empHrs;
             System.out.println("working day" + totalWorkingDays + "employee work" + empHrs + "hour employee wage" + empWage);
         }
-        totalEmpWage = totalEmpHr * EMP_RATE_PerHr;
+        totalEmpWage = totalEmpHr * noOfWorkingDay;
         System.out.println("Month employee wage"+totalEmpWage);
     }
     public static void main(String args[]) {
         System.out.println("Welcome to the employeewage compute");
         // call the employeeWage method
-        employeeWage();
+        employeeWage("Mphasis",40,10,60);
+        employeeWage("MindTree",60,5,40);
+        employeeWage("Philip",20,40,80);
     }
 }
