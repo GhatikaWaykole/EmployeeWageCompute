@@ -1,6 +1,12 @@
 package com.example.EmployeeWageCompute;
 
-public class company {
+interface interface1{
+    public void employeWageCompute(String companyName, int empratePerHr, int noOfworkingday, int maxHrPerMonth);
+    public void employeeWage();
+
+    //public void employeWageCompute(String mphasis, int i, int i1, int i2);
+}
+ public class company {
     private String companyName;
     private int empratePerHr, noOfworkingday,maxHrPerMonth, totalEmpwage;
 

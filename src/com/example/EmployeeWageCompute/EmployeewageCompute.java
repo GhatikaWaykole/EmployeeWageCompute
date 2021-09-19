@@ -1,7 +1,7 @@
 package com.example.EmployeeWageCompute;
 
 import java.util.Random;
-public class EmployeewageCompute {
+public class EmployeewageCompute implements interface1{
     static final int IS_FULL_TIME = 1;
     static final int IS_PART_TIME = 2;
 
@@ -16,11 +16,12 @@ public class EmployeewageCompute {
     public EmployeewageCompute(){
         company = new company[6];
     }
+
     public void employeWageCompute(String companyName, int empratePerHr, int noOfWorkingday, int maxHrPerMonth){
         company[noOfCompany] = new company(companyName,empratePerHr,noOfWorkingday,maxHrPerMonth);
         noOfCompany++;
     }
-    private void employeeWage() {
+    public void employeeWage() {
         for (int i = 0; i < noOfCompany; i++) {
             company[i].setTotalEmpwage(this.employee(company[i]));
             System.out.println(company[i]);
@@ -55,10 +56,10 @@ public class EmployeewageCompute {
     public static void main(String args[]) {
         System.out.println("Welcome to the employeewage compute");
         // call the employeeWage
-        EmployeewageCompute employeewageCompute = new EmployeewageCompute();
-        employeewageCompute.employeWageCompute("Mphasis",40,10,60);
-        employeewageCompute.employeWageCompute("MindTree",60,5,40);
-        employeewageCompute.employeWageCompute("Philip",20,40,60);
-        employeewageCompute.employeeWage();
+        interface1 employeewageCompute = new EmployeewageCompute();
+        ((EmployeewageCompute)employeewageCompute).employeWageCompute("Mphasis",40,10,60);
+        ((EmployeewageCompute)employeewageCompute).employeWageCompute("MindTree",60,5,40);
+        ((EmployeewageCompute)employeewageCompute).employeWageCompute("Philip",20,40,60);
+        ((EmployeewageCompute)employeewageCompute).employeeWage();
     }
 }
