@@ -7,10 +7,24 @@ class employee{
 public class EmployeewageCompute {
     static final int IS_FULL_TIME = 1;
     static final int IS_PART_TIME = 2;
-    /* employeeWage method to compute the employee wage
-      * employee wage compute with the switch case and random to give the working day of employee
-     */
-    public static void employeeWage(String companyName, int empRatePerHr, int noOfWorkingDay, int maxHrPerMonth) {
+
+    String companyName;
+    private final int empRatePerHr;
+    private final int noOfWorkingDay;
+    private final int maxHrPerMonth;
+    private int totalEmpWage;
+
+    /* EmployeeWage parametrise constructor
+    * parameter refer to the static final wih the use this operator to assign the value
+    */
+    public EmployeewageCompute(String companyName, int empratePerHr, int noOfWorkingday, int maxHrPerMonth){
+        int noOfWorkingDay1;
+        this.companyName = companyName;
+        this.empRatePerHr = empratePerHr;
+        this.maxHrPerMonth = maxHrPerMonth;
+        this.noOfWorkingDay = noOfWorkingday;
+    }
+    public void employeeWage() {
         int empHrs = 0, empWage = 0, totalEmpWage = 0, totalEmpHr = 0, totalWorkingDays = 0;
         // random to compute the value of random number rang of 2 number
         while(totalEmpHr <= maxHrPerMonth && totalWorkingDays < noOfWorkingDay) {
@@ -32,14 +46,25 @@ public class EmployeewageCompute {
             totalEmpHr += empHrs;
             System.out.println("working day" + totalWorkingDays + "employee work" + empHrs + "hour employee wage" + empWage);
         }
-        totalEmpWage = totalEmpHr * noOfWorkingDay;
-        System.out.println("Month employee wage"+totalEmpWage);
+        this.totalEmpWage = totalEmpHr * noOfWorkingDay;
+        }
+        /* toString method to return the totalEmpWage
+         * employee wage return is not proper format toStrin emthod used to the proper employeewage
+         */
+    public String toString() {
+        return "Month employee wage" + totalEmpWage;
     }
     public static void main(String args[]) {
         System.out.println("Welcome to the employeewage compute");
-        // call the employeeWage method
-        employeeWage("Mphasis",40,10,60);
-        employeeWage("MindTree",60,5,40);
-        employeeWage("Philip",20,40,80);
+        // call the employeeWage
+        EmployeewageCompute mphasis = new EmployeewageCompute("Mphasis",40,10,60);
+        mphasis.employeeWage();
+        System.out.println("mphasis employee month wage"+mphasis);
+        EmployeewageCompute mindtree = new EmployeewageCompute("MindTree",60,5,40);
+        mindtree.employeeWage();
+        System.out.println("mindtree employee month wage"+mindtree);
+        EmployeewageCompute philip = new EmployeewageCompute("Philip",20,40,80);
+        philip.employeeWage();
+        System.out.println("philip employee month wage"+philip);
     }
 }
